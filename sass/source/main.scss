@@ -1,0 +1,123 @@
+@use 'config/reset.scss';
+@use 'config/variaveis.scss';
+@use 'sass:math';
+
+@function pixelParaEm($alvoEmPixel,$contextEmPixel: 16px) {
+    @return math.div($alvoEmPixel,$contextEmPixel) + em;
+}
+
+
+body {
+    background-color: variaveis.$corDeFundo;
+}
+
+.container {
+    max-width: 1024px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+header {
+    background-color: variaveis.$corHeader;
+    position: sticky;
+    top: 0;
+    left: 0;
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: pixelParaEm(16px) 0;
+
+        .menu {
+            display: flex;
+
+            li {
+                font-weight: bold;
+                margin-left: pixelParaEm(24px);
+                padding: pixelParaEm(5px) 0;
+                position: relative;
+
+                a{
+                    color: variaveis.$corTextoPrimaria;
+                    text-decoration: none;
+                    transition: all .5s;
+
+                    &::after {
+                        content: '';
+                        display: block;
+                        position: absolute;
+                        transition: width 0.5s;
+                        left: 0;
+                        bottom: 0;
+                        height: 2px;
+                        width: 0;
+                        background-color: variaveis.$corTextoHover;
+                    }
+                    &:hover::after {
+                        width: 100%;
+                    }
+                    &:hover {
+                        color: variaveis.$corTextoHover;
+                    }
+                }
+                
+            }
+        }
+    }
+}
+
+
+section {
+    padding: pixelParaEm(56px) 0;
+}
+
+
+.products {
+    margin-top: pixelParaEm(40px);
+    display: grid;
+    grid-template-columns: repeat(3, 32.66%);
+    column-gap: 1%;
+    row-gap: 4%;
+    width: 100%;
+
+    .product-item img {
+        width: 100%;
+        border-radius: pixelParaEm(16px);
+    }
+    .product-button {
+        display: block;
+        background-color: variaveis.$corPrimariaButton;
+        color: variaveis.$corTextoPrimaria;
+        text-align: center;
+        padding: 8px 0;
+        transition: background-color .5s;
+        border-radius: 8px;
+        margin-top: 8px;
+        text-decoration: none;
+        &:hover {
+            background-color: variaveis.$corSecundariaButton;
+        }
+    }
+}
+
+@media screen and (max-width: variaveis.$tablet) {
+    .container {
+        max-width: 80%;
+    }
+
+    .products {
+        grid-template-columns: repeat(2, 48.5%);
+        column-gap: 3%;
+    }
+}
+
+@media screen and (max-width: variaveis.$mobile) {
+    .products {
+        display: block;
+    }
+
+    .product-item  {
+        margin-bottom: pixelParaEm(32px);
+    }
+}
