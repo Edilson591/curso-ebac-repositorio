@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de cadastro</title>
+</head>
+<body>
+    <header>
+        <h1>Formulário de cadastro</h1>
+    </header>
+    <main>
+        <form action="Process.php" class="formulario">
+
+            <label for="email">Nome</label>
+            <input type="text" id="name" name="name" placeholder="Seu nome" required >
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Seu email" required >
+            
+            <label for="senha">Senha</label>
+            <input type="password" id="senha" name="senha" placeholder="Sua senha" required >
+
+            <button type="submit" value="cadastro">
+                Cadastrar
+            </button>
+
+        </form>
+
+    </main>
+    <link rel="stylesheet" href="style.css">
+</body>
+</html>

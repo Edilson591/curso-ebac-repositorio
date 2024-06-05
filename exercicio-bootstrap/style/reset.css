@@ -1,0 +1,18 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    background: linear-gradient(90deg, rgb(46, 45, 56) 0%, rgba(79, 78, 71, 1) 35%, rgb(93, 106, 109) 100%);
+    color: #ffffff;
+}
+
+button {
+    margin-top: 24px;
+}
